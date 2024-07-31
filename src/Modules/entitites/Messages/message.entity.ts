@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { v4 as uuid } from "uuid";
 
 type MessageProps = {
@@ -5,7 +6,7 @@ type MessageProps = {
     message: string
     startDate: Date
     endDate: Date
-    userId: string
+    userId?: string
 }
 
 export class Message implements MessageProps{
@@ -15,15 +16,15 @@ export class Message implements MessageProps{
     message: string
     startDate: Date
     endDate: Date
-    userId: string
+    userId?: string
 
     private constructor(props: MessageProps){
 
         this.id = uuid()
         this.title= props.title
         this.message= props.message
-        this.startDate = props.startDate
-        this.endDate = props.endDate
+        this.startDate = dayjs(props.startDate).add(3,"hour").toDate()
+        this.endDate = dayjs(props.endDate).add(3,"hour").toDate()
         this.userId = props.userId
     }
 
