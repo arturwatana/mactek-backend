@@ -7,6 +7,7 @@ type MessageProps = {
     startDate: Date
     endDate: Date
     userId?: string
+    isActive: boolean
 }
 
 export class Message implements MessageProps{
@@ -17,6 +18,7 @@ export class Message implements MessageProps{
     startDate: Date
     endDate: Date
     userId?: string
+    isActive: boolean
 
     private constructor(props: MessageProps){
 
@@ -26,6 +28,7 @@ export class Message implements MessageProps{
         this.startDate = dayjs(props.startDate).add(3,"hour").toDate()
         this.endDate = dayjs(props.endDate).add(3,"hour").toDate()
         this.userId = props.userId
+        this.isActive = false
     }
 
     static create(props: MessageProps): Message{

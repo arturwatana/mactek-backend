@@ -19,6 +19,7 @@ model Messages {
   message String
   startDate DateTime
   endDate DateTime
+  isActive Boolean @default(false)
   @@map("messages")
 }
 
@@ -29,4 +30,13 @@ model User {
   password String
   @@map("users")
 
+}
+
+model Contacts{
+    id String @id @default(uuid())
+    name String
+    enterprise String 
+    message String
+    email String
+    @@map("contacts")
 }
