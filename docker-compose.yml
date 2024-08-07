@@ -1,0 +1,27 @@
+services:
+  mactek-db:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=mydb
+    networks:
+      - network1
+    container_name: mactek-database
+
+  mactek-app:
+    build: "."
+    depends_on: 
+    - mactek-db
+    ports:
+      - 3030:3030
+    networks:
+      - network1
+
+
+networks:
+  network1:
+    name: mynet
+    external: true

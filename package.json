@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "migrations": "npx prisma db push",
+    "script": "./migrate-start.sh"
   },
   "keywords": [],
   "author": "",
